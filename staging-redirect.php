@@ -12,7 +12,7 @@
 if(!defined('ABSPATH')){die();}
 //Redirect
 function redirectStaging(){
-	$liveSite = "https://www".explode("staging",$_SERVER['HTTP_HOST'])[1];
+	$liveSite = str_replace('//staging.','//www.',home_url());
 	if(!is_user_logged_in()){
 		wp_redirect($liveSite);
 		exit;
